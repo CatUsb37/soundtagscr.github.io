@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SoundTag Screamer</title>
+  <style>
+    html,body{height:100%;margin:0;background:black;}
+    video{width:100%;height:100%;object-fit:cover;display:block;}
+  </style>
+</head>
+<body>
+  <video id="player" autoplay muted loop playsinline preload="auto">
+    <source src="vdi.mp4" type="video/mp4">
+  </video>
+  <script>
+    const v=document.getElementById('player');
+    v.play();
+    v.volume=1.0;
+    function unmute(){v.muted=false;v.volume=1.0;v.requestFullscreen().catch(()=>{});window.removeEventListener('click',unmute);window.removeEventListener('keydown',unmute);}
+    window.addEventListener('click',unmute);
+    window.addEventListener('keydown',unmute);
+  </script>
+</body>
+</html>
